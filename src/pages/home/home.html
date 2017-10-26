@@ -1,14 +1,67 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Tapis User
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-label>Agama</ion-label>
+          
+          <ion-select [(ngModel)]="filter.agama">
+              <ion-option value="">No Filter</ion-option>
+            <ion-option *ngFor="let religion of religionList" value="{{ religion.id}}">{{ religion.label}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <!-- State -->
+        <ion-item>
+            <ion-label>NEGERI</ion-label>
+            <ion-select [(ngModel)]="filter.negeri">
+                <ion-option value="">No Filter</ion-option>
+              <ion-option *ngFor="let state of stateList" value="{{ state.id}}">{{ state.label}}</ion-option>
+            </ion-select>
+          </ion-item>
+           <!-- Gender -->
+        <ion-item>
+            <ion-label>JANTINA</ion-label>
+            <ion-select [(ngModel)]="filter.jantina">
+                <ion-option value="">No Filter</ion-option>
+              <ion-option *ngFor="let gender of genderList" value="{{ gender.id}}">{{ gender.label}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+            <!-- Status -->
+        <ion-item>
+            <ion-label>STATUS</ion-label>
+            <ion-select [(ngModel)]="filter.status">
+                <ion-option value="">No Filter</ion-option>
+              <ion-option *ngFor="let status of statusList" value="{{ status.id}}">{{ status.label}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+
+            <!-- Bangsa -->
+        <ion-item>
+            <ion-label>BANGSA</ion-label>
+            <ion-select [(ngModel)]="filter.bangsa">
+              <ion-option value="">No Filter</ion-option>
+              <ion-option *ngFor="let race of raceList" value="{{ race.id}}">{{ race.label}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <div padding>
+              <button ion-button full (click)="tapisUser()">Filter User</button>
+          </div>
+         
+         <!-- 
+        Tambah list untuk
+         State
+         Gender
+         Status
+         Race 
+         -->
+      </ion-list>
 </ion-content>
